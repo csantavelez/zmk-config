@@ -23,5 +23,13 @@ config BT_MAX_CONN
 config BT_MAX_PAIRED
     default 6
 
+# Read the battery level of each half over the split link, and expose them to
+# the host as an additional Battery Service (one level per peripheral).
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
 endif
 
