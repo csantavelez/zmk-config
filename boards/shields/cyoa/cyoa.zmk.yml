@@ -1,0 +1,8 @@
+file_format: "1"
+id: cyoa
+name: CYOA Ortho 4x10
+type: shield
+url: https://github.com/mohoyt/cyoa_ortho
+requires: [pro_micro]
+features:
+  - keys
