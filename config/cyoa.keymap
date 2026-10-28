@@ -70,7 +70,7 @@
           &ht LCTRL Z &ht LALT X &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp FSLH
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CTRL     │ ALT      │ ESC      │ GUI/TAB  │ SPACE/L1 │   │ ENTER/L2 │ CAPS     │ DEL      │ ALT      │ CTRL     │
-           &kp LCTRL  &kp LALT   &kp ESC  &ht LGUI TAB &lt 1 SPACE    &lt 2 ENTER &caps     &kp DEL    &kp RALT   &kp RCTRL
+           &kp A      &kp B      &kp C      &kp D      &kp E          &kp F      &kp G      &kp H      &kp I      &kp J
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
