@@ -47,14 +47,6 @@
     };
 
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -64,13 +56,13 @@
            &qesc      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │; "       │
-          &ht LSHFT A &kp S      &kp D      &ht LGUI F &kp G          &kp H      &ht LGUI J &kp  K     &kp  L     &kp SEMI
+          &ht LSHFT A &kp S      &kp D      &ht LCTRL F &kp G         &kp H      &ht RCTRL J &kp K     &kp L     &ht RSHFT SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . :      │ / ?      │
-          &ht LCTRL Z &ht LALT X &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp FSLH
+          &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp FSLH
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CTRL     │ ALT      │ ESC      │ GUI/TAB  │ SPACE/L1 │   │ ENTER/L2 │ LEFT     │ DOWN     │ UP       │ RIGHT    │
-           &kp LCTRL  &kp LALT   &kp ESC  &ht LGUI TAB &lt 1 SPACE    &lt 2 ENTER &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
+        //│CTRL/ENTER│ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ (2u)     │ BRI DN   │ BRI UP   │ VOL DN   │ VOL UP   │
+       &ht LCTRL ENTER &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
@@ -78,8 +70,8 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ !        │  @       │  #       │  $       │  %       │   │ *        │ 7        │ 8        │ 9        │          │
-           &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp N7     &kp N8     &kp N9     &trans
+        //│ !        │  @       │  #       │  $       │  %       │   │ *        │ 7        │ 8        │ 9        │ ESC      │
+           &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp N7     &kp N8     &kp N9     &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  \       │  '       │  (       │  )       │  =       │   │ -        │ 4        │ 5        │ 6        │  0       │
            &kp BSLH   &kp SQT    &kp LPAR   &kp RPAR   &kp EQUAL      &kp MINUS  &kp N4     &kp N5     &kp N6     &kp N0
@@ -87,30 +79,14 @@
         //│ <        │  >       │  [       │  ]       │   &      │   │ +        │ 1        │  2       │ 3        │  TILDE   │
            &kp LT     &kp GT     &kp LBKT   &kp RBKT   &kp AMPS       &kp PLUS   &kp N1     &kp N2     &kp N3     &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-           &trans     &trans     &trans    &kp RG(RC(RS(N4))) &trans         &trans     &trans     &trans     &trans     &trans
+        //│ BT/BOOT  │          │          │ SCREENSHOT│         │   │          │          │          │          │          │
+           &mo 2      &trans     &trans    &kp RG(RC(RS(N4))) &trans         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
 
 
-        right_layer {
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │          │          │          │          │          │
-           HYPR(Q)    HYPR(W)    HYPR(E)    HYPR(R)    HYPR(T)       &kp C_VOL_UP &kp RC(RS(TAB)) &kp C_BRI_DN &kp C_BRI_UP &kp RC(TAB)
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │          │
-           &kp LSHFT  HYPR(S)    HYPR(D)    HYPR(F)    HYPR(G)        &kp C_MUTE  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │          │
-         HYPR(LEFT) &kp LC(LEFT) &kp LC(RIGHT) HYPR(RIGHT) HYPR(B)    &kp C_VOL_DN &kp HOME &kp PG_DN  &kp PG_UP  &kp END
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-           &trans     &trans     &trans    &trans     &trans         &trans    &kp RG(RC(Q))     &trans     &trans     &trans
-        //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
-            >;
-        };
-        
-        tri_layer {
+        system_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
