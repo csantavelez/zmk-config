@@ -38,12 +38,6 @@
             bindings = <&kp DOT>, <&kp LS(P)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        qesc: q_esc {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp Q>, <&kp ESC>;
-        };
     };
 
 
@@ -53,16 +47,16 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-           &qesc      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp BSPC
+           &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │; "       │
           &ht LSHFT A &kp S      &kp D      &ht LCTRL F &kp G         &kp H      &ht RCTRL J &kp K     &kp L     &ht RSHFT SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . :      │ / ?      │
-          &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp FSLH
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . :      │ ENTER    │
+          &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│CTRL/ENTER│ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ (2u)     │ BRI DN   │ BRI UP   │ VOL DN   │ VOL UP   │
-       &ht LCTRL ENTER &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP
+        //│CTRL/ENTER│ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ (2u)     │ LEFT     │ DOWN     │ UP       │ RIGHT    │
+       &ht LCTRL ENTER &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &none   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
@@ -76,11 +70,11 @@
         //│  \       │  '       │  (       │  )       │  =       │   │ -        │ 4        │ 5        │ 6        │  0       │
            &kp BSLH   &kp SQT    &kp LPAR   &kp RPAR   &kp EQUAL      &kp MINUS  &kp N4     &kp N5     &kp N6     &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ <        │  >       │  [       │  ]       │   &      │   │ +        │ 1        │  2       │ 3        │  TILDE   │
-           &kp LT     &kp GT     &kp LBKT   &kp RBKT   &kp AMPS       &kp PLUS   &kp N1     &kp N2     &kp N3     &kp TILDE
+        //│ <        │  >       │  [       │  ]       │   &      │   │ +        │ 1        │  2       │ 3        │ / ?      │
+           &kp LT     &kp GT     &kp LBKT   &kp RBKT   &kp AMPS       &kp PLUS   &kp N1     &kp N2     &kp N3     &kp FSLH
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ BT/BOOT  │          │          │ SCREENSHOT│         │   │          │          │          │          │          │
-           &mo 2      &trans     &trans    &kp RG(RC(RS(N4))) &trans         &trans     &trans     &trans     &trans     &trans
+        //│ BT/BOOT  │          │          │          │          │   │          │ VOL DN   │ BRI DN   │ BRI UP   │ VOL UP   │
+           &mo 2      &trans     &trans     &trans     &trans         &trans  &kp C_VOL_DN &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_UP
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
