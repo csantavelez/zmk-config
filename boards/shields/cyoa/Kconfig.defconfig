@@ -1,0 +1,6 @@
+if SHIELD_CYOA
+
+config ZMK_KEYBOARD_NAME
+    default "CYOA"
+
+endif
