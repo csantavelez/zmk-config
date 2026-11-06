@@ -20,6 +20,13 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+        ctlesc: ctrl_esc {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
         caps: capsword {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -46,7 +53,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-           &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp BSPC
+           &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │; "       │
           &ht LSHFT A &kp S      &kp D      &ht LCTRL F &kp G         &kp H      &ht RCTRL J &kp K     &kp L     &ht RSHFT SEMI
@@ -54,8 +61,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . :      │ / ?      │
           &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp FSLH
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CTRL     │ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ ENTER    │ LEFT     │ DOWN     │ UP       │ RIGHT    │
-           &kp LCTRL  &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &kp ENTER  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
+        //│ESC/CTRL  │ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ ENTER    │ VOL DN   │ MUTE     │ VOL UP   │ BSPC     │
+     &ctlesc LCTRL ESC &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &kp ENTER &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &kp BSPC
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
@@ -72,8 +79,8 @@
         //│ <        │  >       │  [       │  ]       │   &      │   │ +        │ 1        │  2       │ 3        │  TILDE   │
            &kp LT     &kp GT     &kp LBKT   &kp RBKT   &kp AMPS       &kp PLUS   &kp N1     &kp N2     &kp N3     &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │ BT/BOOT  │ VOL DN   │ BRI DN   │ BRI UP   │ VOL UP   │
-           &trans     &trans     &trans     &trans     &trans         &mo 2   &kp C_VOL_DN &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_UP
+        //│ VOL DN   │ BRI DN   │ BRI UP   │ VOL UP   │          │   │ BT/BOOT  │ LEFT     │ DOWN     │ UP       │ RIGHT    │
+      &kp C_VOL_DN &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_UP &trans       &mo 2      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
