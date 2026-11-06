@@ -66,8 +66,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . :      │ ENTER    │
           &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &semicomma &dotco     &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CTRL     │ ALT/GUI  │ TAB      │ SHIFT    │ SPACE/L1 │   │ (2u)     │ LEFT     │ DOWN     │ UP       │ RIGHT    │
-           &kp LCTRL  &ht LALT LGUI &kp TAB &kp LSHFT &lt 1 SPACE  &none   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
+        //│ CTRL     │ ALT/GUI  │ TAB      │ SHIFT    │ (2u)     │   │ SPACE/L1 │ LEFT     │ DOWN     │ UP       │ RIGHT    │
+           &kp LCTRL  &ht LALT LGUI &kp TAB &kp LSHFT &none        &lt 1 SPACE &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
