@@ -79,8 +79,8 @@
         //│ <        │  >       │  [       │  ]       │   &      │   │ +        │ 1        │  2       │ 3        │  TILDE   │
            &kp LT     &kp GT     &kp LBKT   &kp RBKT   &kp AMPS       &kp PLUS   &kp N1     &kp N2     &kp N3     &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ VOL DN   │ BRI DN   │ BRI UP   │ VOL UP   │          │   │ BT/BOOT  │ LEFT     │ DOWN     │ UP       │ RIGHT    │
-      &kp C_VOL_DN &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_UP &trans       &mo 2      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
+        //│          │          │          │          │          │   │ BT/BOOT  │ LEFT     │ DOWN     │ UP       │ RIGHT    │
+           &trans     &trans     &trans     &trans     &trans         &mo 2      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
         //╰──────────┴──────────┴──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────┴──────────┴──────────╯
             >;
         };
